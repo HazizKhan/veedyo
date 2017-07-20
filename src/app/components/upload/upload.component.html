@@ -1,0 +1,59 @@
+<router-outlet name="public-header"></router-outlet>
+<div class="container">
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title">Upload a video</h3>
+      </div>
+      <div class="panel-body">
+        <div class="container-fluid">
+          <p *ngIf="extErr" style="color: red;">*{{extErr}}</p>
+          
+          <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1">Title</span>
+            <input #title type="text" class="form-control" placeholder="Title" aria-describedby="basic-addon1">
+          </div>
+          <div class="input-group">
+            <span class="input-group-addon" id="basic-addon2">Descriptions</span>
+            <textarea #description type="text" class="form-control" placeholder="Description" aria-describedby="basic-addon2"></textarea>
+          </div>
+          <div class="input-group">
+            <span class="input-group-addon" id="basic-addon3">Categories</span>
+            <input type="text" #category (kryup.enter)="pushCategory(category)" class="form-control" placeholder="Category" aria-describedby="basic-addon1">
+          </div>
+          <div>
+            <nav aria-label="asd">
+              <ul class="pager" style="margin:0; margin-bottom:5px;">
+                <li class=""><a href="javascript:void(0)">Newer <span aria-hidden="true" class="badge">x</span></a></li>
+              </ul>
+            </nav>
+          </div>
+          <div class="input-group">
+            <span class="input-group-addon" id="basic-addon4">Thumbnail</span>
+            <input #thumbnail (change)="uploadThumbnail(thumbnail)" type="file" class="form-control"  aria-describedby="basic-addon4">
+          </div>
+          <div class="progress">
+            <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
+              <span class="sr-only">45% Complete</span>
+            </div>
+          </div>
+          <div class="input-group">
+            <span class="input-group-addon" id="basic-addon45">Video</span>
+            <input #video (change)="uploadVideo(video)" type="file" class="form-control"  aria-describedby="basic-addon5">
+          </div>
+          <div class="progress">
+            <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
+              <span class="sr-only">45% Complete</span>
+            </div>
+          </div>
+          <button class="btn btn-primary">Publish</button>
+          <div>
+        </div>
+      </div>
+    </div>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+</div>
